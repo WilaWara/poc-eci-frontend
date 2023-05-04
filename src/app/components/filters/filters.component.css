@@ -1,0 +1,101 @@
+@font-face{
+    font-family: "Segoe UI Light";
+    src: url("../../../assets/fonts/segoe-ui-light.ttf");
+}
+
+button {
+    margin: 10px 0 10px 0;
+    font-family: "Segoe UI Light";
+    font-size: 18px;
+    background-color: transparent;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input, select {
+    margin: 10px 0 10px 0;
+    font-family: "Segoe UI Light";
+    font-size: 18px;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+hr {
+    width: 90%;
+}
+
+.container {
+    position: absolute;
+    width: 20vw;
+    height: calc(100vh - 130px);
+    left: 10px;
+    top: 120px;
+    font-family: "Segoe UI Light";
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search {
+    position: relative;
+    width: 94%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-name {
+    width: 72%;
+    height: 22px;
+}
+
+#searchName {
+    width: 23%;
+    height: 25px;
+}
+
+.filters {
+    position: relative;
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.min-price, .max-price {
+    width: 94%;
+}
+
+.actions {
+    position: relative;
+    width: 94%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#clearFilters, #searchFilters {
+    height: 30px;
+}
+
+#clearFilters:hover {
+    background-color:rgba(0, 0, 0, 0.2);
+}
+
+#searchFilters {
+    background-color:rgba(0, 0, 0, 0.2);
+}
+
+#searchFilters:hover {
+    background-color:transparent;
+}
