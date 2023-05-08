@@ -1,0 +1,18 @@
+<img class="item-picture" src="../../../../../assets/images/ropa.jpg" />
+<h3 class="item-name">{{ product.name }}</h3>
+<h4 class="item-price">{{ product.price }}</h4>
+<h5 class="item-stock">Available: {{ product.stock }}</h5>
+<p class="item-description">{{ product.description }}</p>
+
+<button 
+    *ngIf="!alreadyInCart(product.id)" 
+    id="add"
+    (click)="addToCart(product)">
+    Add to my cart
+</button>
+<button 
+    *ngIf="alreadyInCart(product.id)" 
+    id="remove"
+    (click)="removeFromCart(product.id)">
+    Remove from my cart
+</button>
