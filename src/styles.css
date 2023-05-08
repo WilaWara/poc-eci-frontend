@@ -1,4 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Font */
+@font-face{
+    font-family: "Segoe UI Light";
+    src: url("/src/assets/fonts/segoe-ui-light.ttf");
+}
+
+/* Animations */
+@keyframes openCart {
+    from{left:100vw;}
+    to{left:calc(100vw - 290px);}
+}
+
+@keyframes closeCart {
+    from{left:calc(100vw - 290px);}
+    to{left:100vw;}
+}
+
+/* Elements */
+button {
+    position: relative;
+    width: 94%;
+    left: 3%;
+    bottom: 3px;
+    margin: 10px 0 10px 0;
+    font-family: "Segoe UI Light";
+    font-size: 18px;
+    background-color: transparent;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input, select {
+    margin: 10px 0 10px 0;
+    font-family: "Segoe UI Light";
+    font-size: 18px;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+hr {
+    width: 90%;
+}
+
 body {
     overflow: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #EF3340;
 }

@@ -1,0 +1,21 @@
+<div class="container" [ngClass]="show ? 'show-cart' : 'hide-cart'">
+    <div class="header">
+        <h3 class="title">My cart:</h3>
+        <h3 class="close" (click)="closeCart()">X</h3>
+    </div>
+
+    <div class="products-container">
+        <div *ngFor="let cartProduct of cartProducts"  
+            class="item-card">
+            <app-product-card [product]="cartProduct"></app-product-card>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3 class="total">Total: {{ total }} $us</h3>
+
+    <button id="pay" (click)="callPaymentGateway()">
+        Pay
+    </button>
+</div>

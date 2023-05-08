@@ -1,8 +1,8 @@
 <div class="container">
     <div class="search">
-        <input type="text" class="search-name" placeholder="Name..."/>
+        <input #productName type="text" class="search-name" placeholder="Name..."/>
 
-        <button id="searchName">
+        <button id="searchName" (click)="search(productName.value)">
             <svg class="glass" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <circle cx="10" cy="10" r="7" />
@@ -16,9 +16,11 @@
     <div class="filters">
         <select class="category-filter">
             <option value="0">Category...</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            <option 
+                *ngFor="let category of categories" 
+                value="{{ category.id }}">
+                {{ category.name }}
+            </option>
         </select>
 
         <div class="price-filter">
@@ -31,11 +33,17 @@
     <hr>
 
     <div class="actions">
-        <button id="clearFilters">
+        <button
+            class="filter-actions"
+            id="clearFilters" 
+            (click)="clearFilters()">
             Clear filters
         </button>
 
-        <button id="searchFilters">
+        <button
+            class="filter-actions"
+            id="searchFilters" 
+            (click)="searchWithFilters()">
             Search
         </button>
     </div>
