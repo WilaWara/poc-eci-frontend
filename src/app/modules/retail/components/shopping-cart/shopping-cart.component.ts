@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProductResponse } from 'src/app/core/models/IProductResponse';
 import { IState } from 'src/app/core/models/IState';
 import { StateService } from 'src/app/core/services/state/state.service';
 @Component({
@@ -10,7 +11,7 @@ export class ShoppingCartComponent {
   state!: IState;
   
   show: boolean;
-  cartProducts: any[];
+  cartProducts: IProductResponse[];
   total: number;
 
   constructor(private stateService: StateService) {
