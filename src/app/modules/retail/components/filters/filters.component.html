@@ -2,8 +2,12 @@
     <div class="search">
         <input #productName type="text" class="search-name" placeholder="Name..."/>
 
-        <button id="searchName" (click)="search(productName.value)">
-            <svg class="glass" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <button id="searchName" (click)="search(productName.value, 0, 0, 0)">
+            <svg class="glass" xmlns="http://www.w3.org/2000/svg" 
+                class="icon icon-tabler icon-tabler-search" 
+                width="20" height="20" viewBox="0 0 24 24" 
+                stroke-width="1.5" stroke="#2c3e50" fill="none" 
+                stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <circle cx="10" cy="10" r="7" />
                 <line x1="21" y1="21" x2="15" y2="15" />
@@ -14,7 +18,7 @@
     <hr>
 
     <div class="filters">
-        <select class="category-filter">
+        <select #productCategory class="category-filter">
             <option value="0">Category...</option>
             <option 
                 *ngFor="let category of categories" 
@@ -24,9 +28,17 @@
         </select>
 
         <div class="price-filter">
-            <input type="number" class="min-price" placeholder="Min price..."/>
+            <input 
+                #productMinPrice
+                type="number" 
+                class="min-price" 
+                placeholder="Min price..." />
             <br>to<br>
-            <input type="number" class="max-price" placeholder="Max price..."/>
+            <input 
+                #productMaxPrice
+                type="number" 
+                class="max-price" 
+                placeholder="Max price..." />
         </div>
     </div>
 
@@ -36,14 +48,22 @@
         <button
             class="filter-actions"
             id="clearFilters" 
-            (click)="clearFilters()">
+            (click)="
+                productCategory.value = '0';
+                productMinPrice.value = '';
+                productMaxPrice.value = '';">
             Clear filters
         </button>
 
         <button
             class="filter-actions"
             id="searchFilters" 
-            (click)="searchWithFilters()">
+            (click)="search(
+                    productName.value, 
+                    +productCategory.value, 
+                    +productMinPrice.value, 
+                    +productMaxPrice.value
+                )">
             Search
         </button>
     </div>
