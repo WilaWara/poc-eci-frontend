@@ -10,7 +10,6 @@ import { StateService } from 'src/app/core/services/state/state.service';
 })
 export class ProductListComponent implements OnInit {
   state!: IState;
-  products: any[];
 
   constructor(
     private productServices: ProductService,
@@ -24,8 +23,6 @@ export class ProductListComponent implements OnInit {
     this.stateServices.getEvents().subscribe((event) => {
       this.state = event;
     });
-
-    this.products = [];
   }
 
   ngOnInit(): void {

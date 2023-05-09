@@ -39,7 +39,7 @@ export class ShoppingCartComponent {
   }
 
   callPaymentGateway(): void {
-    
+    window.open('https://libelula.bo/pasarela-multi-canal/', '_blank');
   }
 
 }
