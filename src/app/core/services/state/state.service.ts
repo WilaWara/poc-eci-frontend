@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { IState } from '../../models/IState';
 
 
@@ -7,17 +7,15 @@ import { IState } from '../../models/IState';
   providedIn: 'root'
 })
 export class StateService {
-  private appState = new Subject<IState>();
+  private appState = new BehaviorSubject<IState>({
+    totalProducts: [],
+    cartProducts: [],
+    cartOpen: false
+  });
 
-  constructor() {
-    this.appState.next({
-      totalProducts: [],
-      cartProducts: [],
-      cartOpen: false
-    });
-  }
+  constructor() {}
 
-  emitEvent(event: any) {   
+  emitEvent(event: IState) {   
     this.appState.next(event);
   }
 
