@@ -15,11 +15,6 @@ export class ProductListComponent implements OnInit {
     private productServices: ProductService,
     private stateServices: StateService
   ) {
-    this.state = {
-      totalProducts: [], 
-      cartProducts: [], 
-      cartOpen: false
-    }
     this.stateServices.getEvents().subscribe((event) => {
       this.state = event;
     });

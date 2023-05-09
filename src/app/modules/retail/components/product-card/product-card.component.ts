@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IProductResponse } from 'src/app/core/models/IProductResponse';
 import { IState } from 'src/app/core/models/IState';
 import { StateService } from 'src/app/core/services/state/state.service';
 
@@ -9,7 +10,7 @@ import { StateService } from 'src/app/core/services/state/state.service';
 })
 export class ProductCardComponent {
   state!: IState;
-  @Input() product: any;
+  @Input() product!: IProductResponse;
   
   constructor(private stateServices: StateService) {
     this.state = {
@@ -22,7 +23,7 @@ export class ProductCardComponent {
     });
   }
 
-  addToCart(product: any): void {
+  addToCart(product: IProductResponse): void {
     this.state.cartProducts.push(product);
     this.stateServices.emitEvent(this.state);
   }

@@ -1,5 +1,7 @@
+import { IProductResponse } from "./IProductResponse";
+
 export interface IState {
-    totalProducts: any[];
-    cartProducts: any[];
+    totalProducts: IProductResponse[];
+    cartProducts: IProductResponse[];
     cartOpen: boolean;
 }

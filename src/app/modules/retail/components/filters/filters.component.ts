@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ICategoryResponse } from 'src/app/core/models/ICategoryResponse';
 import { IState } from 'src/app/core/models/IState';
 import { CategoryService } from 'src/app/core/services/category/category.service';
 import { ProductService } from 'src/app/core/services/product/product.service';
@@ -11,8 +12,7 @@ import { StateService } from 'src/app/core/services/state/state.service';
 })
 export class FiltersComponent implements OnInit {
   state!: IState;
-  categories: any[];
-  cart: any;
+  categories: ICategoryResponse[];
 
   constructor(
     private categoryServices: CategoryService,
@@ -25,9 +25,6 @@ export class FiltersComponent implements OnInit {
       cartOpen: false
     }
     this.categories = [];
-    this.cart = {
-      items: 0
-    }
     this.stateServices.getEvents().subscribe((event) => {
       this.state = event;
     });

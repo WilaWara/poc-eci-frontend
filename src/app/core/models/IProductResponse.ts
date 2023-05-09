@@ -1,4 +1,5 @@
-export interface IProductCreate {
+export interface IProductResponse {
+    id: number;
     name: string;
     photo: string;
     description: string;
@@ -6,4 +7,5 @@ export interface IProductCreate {
     price: number;
     expireDate: Date;
     categoryId: number;
+    enabled: boolean;
 }
