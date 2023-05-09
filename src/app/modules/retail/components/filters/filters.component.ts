@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IState } from 'src/app/core/models/IState';
 import { CategoryService } from 'src/app/core/services/category/category.service';
 import { ProductService } from 'src/app/core/services/product/product.service';
+import { StateService } from 'src/app/core/services/state/state.service';
 
 @Component({
   selector: 'app-filters',
@@ -8,17 +10,27 @@ import { ProductService } from 'src/app/core/services/product/product.service';
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent implements OnInit {
+  state!: IState;
   categories: any[];
   cart: any;
 
   constructor(
     private categoryServices: CategoryService,
+    private stateServices: StateService,
     private productServices: ProductService
   ) {
+    this.state = {
+      totalProducts: [], 
+      cartProducts: [], 
+      cartOpen: false
+    }
     this.categories = [];
     this.cart = {
       items: 0
     }
+    this.stateServices.getEvents().subscribe((event) => {
+      this.state = event;
+    });
   }
 
   ngOnInit(): void {
@@ -31,17 +43,11 @@ export class FiltersComponent implements OnInit {
     });
   }
 
-  search(productName: string): void {
-    this.productServices.getByFilters(productName, 0, 0, 0).subscribe((response) => {
-      console.log(response);
+  search(name: string, categoryId: number, minPrice: number, maxPrice: number): void {
+    this.productServices.getByFilters(name, categoryId, minPrice, maxPrice).subscribe((response) => {
+      this.state.totalProducts = response;
+      this.stateServices.emitEvent(this.state);
     });
   }
-
-  searchWithFilters(): void {
-
-  }
-
-  clearFilters(): void {
-
-  }
+  
 }

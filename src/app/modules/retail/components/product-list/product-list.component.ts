@@ -34,8 +34,7 @@ export class ProductListComponent implements OnInit {
 
   loadProducts(): void {
     this.productServices.getAll().subscribe((response) => {
-      this.products = response;
-      this.state.totalProducts = this.products;
+      this.state.totalProducts = response;
       this.stateServices.emitEvent(this.state);
     });
   }
